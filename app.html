@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <title>SKCOTS</title>
+  </head>
+  <body style="width:400px;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Stock Trade Calculator</h4>
+          <div id="app"></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/x-handlebars-template" id="calculator-template">
+      <form class="well">
+        <div class="form-group">
+          <input type='number' value="{{buyPrice}}" name='buyPrice' placeholder="Buy Price" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input type='number' value="{{sellPrice}}" name='sellPrice' placeholder="Sell Price" class="form-control" />
+        </div>
+        <div class="form-group">
+          <input type='number' value="{{quantity}}" name='quantity' placeholder="Quantity" class="form-control" />
+        </div>
+      </form>
+      <div class="computed well">
+        <table class="table">
+          <thead>
+            <tr>
+              <td>Type</td>
+              <td>Amount</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Security Transaction Tax</td>
+              <td>{{amount securityTxnTax}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </script>
+
+    <script src="js/libs/jquery-1.11.3.min.js" charset="utf-8"></script>
+    <script src="js/libs/underscore-min.js" charset="utf-8"></script>
+    <script src="js/libs/backbone-min.js" charset="utf-8"></script>
+    <script src="js/libs/handlebars-v4.0.5.js" charset="utf-8"></script>
+    <script src="js/helpers/amount.js" charset="utf-8"></script>
+    <!-- <script src="js/libs/math.min.js" charset="utf-8"></script> -->
+    <script src="js/models/transaction.js" charset="utf-8"></script>
+    <script src="js/models/trade.js" charset="utf-8"></script>
+    <script src="js/views/calculator.js" charset="utf-8"></script>
+    <script src="js/app.js" charset="utf-8"></script>
+  </body>
+</html>
