@@ -1,3 +1,3 @@
 Handlebars.registerHelper('amount', function(value) {
-  return '₹' + value;
+  return '₹' + Math.round(value * 100) / 100;
 });

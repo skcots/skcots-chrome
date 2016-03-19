@@ -2,42 +2,78 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/materialize.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
     <title>SKCOTS</title>
   </head>
   <body style="width:400px;">
-    <div class="container-fluid">
+    <div class="container">
+      <h4>Stock Trade Calculator</h4>
       <div class="row">
-        <div class="col-md-12">
-          <h4>Stock Trade Calculator</h4>
-          <div id="app"></div>
-        </div>
+        <div class="col s12" id="app"/>
       </div>
     </div>
     <script type="text/x-handlebars-template" id="calculator-template">
-      <form class="well">
-        <div class="form-group">
-          <input type='number' value="{{buyPrice}}" name='buyPrice' placeholder="Buy Price" class="form-control" />
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="buyPrice" type='text' value="{{buyPrice}}" name='buyPrice' />
+          <label for="buyPrice" class="active">Buy Price</label>
         </div>
-        <div class="form-group">
-          <input type='number' value="{{sellPrice}}" name='sellPrice' placeholder="Sell Price" class="form-control" />
+        <div class="input-field col s4">
+          <input id="sellPrice" type='text' value="{{sellPrice}}" name='sellPrice' />
+          <label for="sellPrice" class="active">Sell Price</label>
         </div>
-        <div class="form-group">
-          <input type='number' value="{{quantity}}" name='quantity' placeholder="Quantity" class="form-control" />
+        <div class="input-field col s4">
+          <input id="quantity" type='text' value="{{quantity}}" name='quantity' />
+          <label for="quantity" class="active">Quantity</label>
         </div>
-      </form>
-      <div class="computed well">
+        <div class="input-field col s4">
+          <input id="brokerageRate" type='text' value="{{brokerageRate}}" name='brokerageRate' />
+          <label for="brokerageRate" class="active">Brokerage Rate</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <a name='calculate' class="waves-effect waves-light btn">Calculate</a>
+      </div>
+
+      <div class="computed">
         <table class="table">
           <thead>
             <tr>
-              <td>Type</td>
-              <td>Amount</td>
+              <th>Type</th>
+              <th>Amount</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Total Brokerage</td>
+              <td>{{amount brokerage}}</td>
+            </tr>
+            <tr>
+              <td>Transaction Charge</td>
+              <td>{{amount txnCharge}}</td>
+            </tr>
+            <tr>
+              <td>SEBI Fees</td>
+              <td>{{amount sebiFees}}</td>
+            </tr>
+            <tr>
               <td>Security Transaction Tax</td>
               <td>{{amount securityTxnTax}}</td>
+            </tr>
+            <tr>
+              <td>Service Tax (Brokerage)</td>
+              <td>{{amount serviceTaxBrokerage}}</td>
+            </tr>
+            <tr>
+              <td>Service Tax (Transaction Charge)</td>
+              <td>{{amount serviceTaxTxnCharge}}</td>
+            </tr>
+            <tr>
+              <td>Stamp Duty</td>
+              <td>{{amount stampDuty}}</td>
             </tr>
           </tbody>
         </table>
