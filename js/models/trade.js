@@ -42,9 +42,17 @@ var Trade = Backbone.Model.extend({
     this.set('sebiFees', this.total('sebiFees'));
     this.set('securityTxnTax', this.get('sell').get('securityTxnTax'));
     this.set('serviceTaxBrokerage', this.total('serviceTaxBrokerage'));
-    this.set('sbcBrokerage', this.total('sbcBrokerage'));
     this.set('serviceTaxTxnCharge', this.total('serviceTaxTxnCharge'));
     this.set('stampDuty', this.total('stampDuty'));
     this.set('brokerage', this.total('brokerage'));
+  },
+
+  taxes: function() {
+    return this.get('txnCharge') + this.get('sebiFees') + this.get('securityTxnTax') +
+      this.get('serviceTaxBrokerage') + this.get('serviceTaxTxnCharge') + this.get('stampDuty');
+  },
+
+  netProfit: function() {
+    return this.get('sell').netPrice() - this.get('buy').netPrice() - this.taxes();
   }
 });

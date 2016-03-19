@@ -9,7 +9,6 @@
   </head>
   <body style="width:400px;">
     <div class="container">
-      <h4>Stock Trade Calculator</h4>
       <div class="row">
         <div class="col s12" id="app"/>
       </div>
@@ -28,18 +27,17 @@
           <input id="quantity" type='text' value="{{quantity}}" name='quantity' />
           <label for="quantity" class="active">Quantity</label>
         </div>
-        <div class="input-field col s4">
+        <div class="input-field col s5">
           <input id="brokerageRate" type='text' value="{{brokerageRate}}" name='brokerageRate' />
-          <label for="brokerageRate" class="active">Brokerage Rate</label>
+          <label for="brokerageRate" class="active">Brokerage Rate (Intraday)</label>
+        </div>
+        <div class="input-field col s6">
+          <a name='calculate' class="waves-effect waves-light btn">Calculate</a>
         </div>
       </div>
 
-      <div class="row">
-        <a name='calculate' class="waves-effect waves-light btn">Calculate</a>
-      </div>
-
       <div class="computed">
-        <table class="table">
+        <table class="striped">
           <thead>
             <tr>
               <th>Type</th>
@@ -75,6 +73,9 @@
               <td>Stamp Duty</td>
               <td>{{amount stampDuty}}</td>
             </tr>
+            <tr>
+              <td><b>Net Profit</b></td>
+              <td><b>{{amount netProfit}}</b></td>
           </tbody>
         </table>
       </div>

@@ -10,6 +10,7 @@ var CalculatorView = Backbone.View.extend({
 
   data: function() {
     var data = this.model.toJSON();
+    data.netProfit = this.model.netProfit();
     return data;
   },
 
