@@ -1,95 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/materialize.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/app.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SKCOTS</title>
   </head>
   <body style="width:400px;">
-    <div class="container">
-      <div class="row">
-        <div class="col s12" id="app"/>
+    <div>
+      <input type="number" placeholder="Price 1" id="price1" />
+      <input type="number" placeholder="Price 2" id="price2" />
+      <input type="number" placeholder="Percentage" id="percentage" />
+      <div>
+        <input
+        type="button"
+        id="calculate-percentage"
+        value="Calculate %"
+      />
+      <span id="percentage-result"></span>
+      </div>
+      <div>
+        <input
+        type="button"
+        id="calculate-target"
+        value="Calculate Target"
+      />
+      <span id="target-result"></span>
       </div>
     </div>
-    <script type="text/x-handlebars-template" id="calculator-template">
-      <div class="row">
-        <div class="input-field col s4">
-          <input id="buyPrice" type='text' value="{{buyPrice}}" name='buyPrice' />
-          <label for="buyPrice" class="active">Buy Price</label>
-        </div>
-        <div class="input-field col s4">
-          <input id="sellPrice" type='text' value="{{sellPrice}}" name='sellPrice' />
-          <label for="sellPrice" class="active">Sell Price</label>
-        </div>
-        <div class="input-field col s4">
-          <input id="quantity" type='text' value="{{quantity}}" name='quantity' />
-          <label for="quantity" class="active">Quantity</label>
-        </div>
-        <div class="input-field col s5">
-          <input id="brokerageRate" type='text' value="{{brokerageRate}}" name='brokerageRate' />
-          <label for="brokerageRate" class="active">Brokerage Rate (Intraday)</label>
-        </div>
-        <div class="input-field col s6">
-          <a name='calculate' class="waves-effect waves-light btn">Calculate</a>
-        </div>
-      </div>
-
-      <div class="computed">
-        <table class="striped">
-          <thead>
-            <tr>
-              <th>Type</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Total Brokerage</td>
-              <td>{{amount brokerage}}</td>
-            </tr>
-            <tr>
-              <td>Transaction Charge</td>
-              <td>{{amount txnCharge}}</td>
-            </tr>
-            <tr>
-              <td>SEBI Fees</td>
-              <td>{{amount sebiFees}}</td>
-            </tr>
-            <tr>
-              <td>Security Transaction Tax</td>
-              <td>{{amount securityTxnTax}}</td>
-            </tr>
-            <tr>
-              <td>Service Tax (Brokerage)</td>
-              <td>{{amount serviceTaxBrokerage}}</td>
-            </tr>
-            <tr>
-              <td>Service Tax (Transaction Charge)</td>
-              <td>{{amount serviceTaxTxnCharge}}</td>
-            </tr>
-            <tr>
-              <td>Stamp Duty</td>
-              <td>{{amount stampDuty}}</td>
-            </tr>
-            <tr>
-              <td><b>Net Profit</b></td>
-              <td><b>{{amount netProfit}}</b></td>
-          </tbody>
-        </table>
-      </div>
-    </script>
-
-    <script src="js/libs/jquery-1.11.3.min.js" charset="utf-8"></script>
-    <script src="js/libs/underscore-min.js" charset="utf-8"></script>
-    <script src="js/libs/backbone-min.js" charset="utf-8"></script>
-    <script src="js/libs/handlebars-v4.0.5.js" charset="utf-8"></script>
-    <script src="js/helpers/amount.js" charset="utf-8"></script>
-    <!-- <script src="js/libs/math.min.js" charset="utf-8"></script> -->
-    <script src="js/models/transaction.js" charset="utf-8"></script>
-    <script src="js/models/trade.js" charset="utf-8"></script>
-    <script src="js/views/calculator.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/calculator.js" charset="utf-8"></script>
   </body>
 </html>
